@@ -1,0 +1,211 @@
+.present-mode-container {
+  height: calc(100vh - 70px);
+  width: 100vw;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+
+.grid-view {
+  padding: 4rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.present-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), #f4d03f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.05em;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.presentation-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  /* Prevent scroll if we want to fit everything */
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--border-accent);
+  color: var(--text-accent);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: var(--primary-color);
+  color: #000;
+  transform: rotate(90deg);
+}
+
+.speech-teleprompter {
+  flex: 1;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.speech-teleprompter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--primary-color),
+      transparent);
+}
+
+.speech-teleprompter::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--primary-color),
+      transparent);
+}
+
+.speech-content {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-primary);
+  max-width: 900px;
+  text-align: left;
+  font-family: "Georgia", serif;
+  position: relative;
+  padding: 1rem;
+}
+
+.speech-content::first-letter {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  float: left;
+  line-height: 1;
+  margin-right: 0.5rem;
+}
+
+/* Album layout styles */
+.album-layout {
+  background-color: var(--bg-primary);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  overflow: hidden;
+  /* Ensure it doesn't overflow parent */
+  max-height: calc(100vh - 120px);
+  /* Reserve space for header/footer if needed */
+}
+
+.present-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto 1rem auto;
+}
+
+.present-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.reset-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--border-accent);
+  color: var(--text-accent);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.reset-all-btn:hover:not(:disabled) {
+  background: rgba(212, 175, 55, 0.12);
+  color: #000;
+  transform: translateY(-1px);
+}
+
+.reset-all-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Audio Controls */
+.audio-controls {
+  position: relative;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid var(--border-accent);
+  backdrop-filter: blur(5px);
+  margin: 0 auto;
+  /* Center horizontally */
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+  /* Prevent shrinking */
+}
+
+.audio-player {
+  width: 300px;
+  height: 30px;
+  outline: none;
+}
+
+.audio-player::-webkit-media-controls-panel {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.audio-player::-webkit-media-controls-play-button,
+.audio-player::-webkit-media-controls-pause-button {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  transform: scale(0.8);
+}
